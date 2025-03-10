@@ -58,11 +58,24 @@
             display: inline-block;
             font-size: 1.2rem;
         }
+        #continue-btn {
+            display: none;
+            margin-top: 20px;
+            background-color: #00ff00;
+            color: black;
+            padding: 15px 30px;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <h1 class="glitch">Welcome in NXL BAP</h1>
     <div class="terminal" id="terminal"></div>
+    <button id="continue-btn">Continuer</button>
     <div class="content" id="content">
         <p>Bienvenue sur la plateforme <strong>N2K x LeynaYuqii BAP</strong> (Brigade Anti Pédophilie). Nous sommes une communauté dévouée, unissant nos forces pour lutter contre les comportements prédateurs en ligne et protéger les enfants. Nous agissons chaque jour pour créer un monde plus sûr.</p>
         <p>Chaque membre de la BAP joue un rôle essentiel : sensibiliser les familles, signaler les abus aux autorités compétentes et contribuer à des campagnes éducatives. Grâce à notre réseau grandissant, nous avons déjà pu intervenir dans des situations critiques.</p>
@@ -78,6 +91,7 @@
         const terminal = document.getElementById("terminal");
         const content = document.getElementById("content");
         const music = document.getElementById("background-music");
+        const continueBtn = document.getElementById("continue-btn");
         const messages = [
             "Connecting to server...",
             "Bypassing firewall...",
@@ -93,12 +107,18 @@
                 setTimeout(typeMessage, 1500);
             } else {
                 setTimeout(() => {
-                    terminal.style.display = "none";
-                    content.style.display = "block";
-                    music.play();
+                    continueBtn.style.display = "block";
                 }, 1500);
             }
         }
+
+        continueBtn.addEventListener("click", () => {
+            terminal.style.display = "none";
+            continueBtn.style.display = "none";
+            content.style.display = "block";
+            music.play();
+        });
+
         setTimeout(typeMessage, 1000);
     </script>
 </body>

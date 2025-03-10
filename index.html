@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Zone</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        .glitch {
+            font-size: 2.5rem;
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+            animation: glitch 1s infinite;
+        }
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px red, -2px -2px blue; }
+            50% { text-shadow: -2px -2px red, 2px 2px blue; }
+            100% { text-shadow: 2px 2px red, -2px -2px blue; }
+        }
+        .terminal {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff00;
+            padding: 20px;
+            width: 80%;
+            margin: auto;
+            text-align: left;
+            font-size: 1.5rem;
+            height: 300px;
+            overflow: auto;
+        }
+        .terminal::before {
+            content: 'root@hacker:~$ ';
+            color: #00ff00;
+        }
+        .content {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #00ff00;
+            color: black;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 5px;
+            display: inline-block;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="glitch">Welcome in NXL BAP</h1>
+    <div class="terminal" id="terminal"></div>
+    <div class="content" id="content">
+        <p>Bienvenue sur la plateforme <strong>N2K x LeynaYuqii BAP</strong> (Brigade Anti Pédophilie). Nous sommes une communauté dévouée, unissant nos forces pour lutter contre les comportements prédateurs en ligne et protéger les enfants. Nous agissons chaque jour pour créer un monde plus sûr.</p>
+        <p>Chaque membre de la BAP joue un rôle essentiel : sensibiliser les familles, signaler les abus aux autorités compétentes et contribuer à des campagnes éducatives. Grâce à notre réseau grandissant, nous avons déjà pu intervenir dans des situations critiques.</p>
+        <p>Rejoindre la BAP, c’est s’impliquer dans une mission noble et courageuse. Nous croyons en la force collective pour réduire les risques auxquels les enfants sont exposés. Nous développons des outils concrets pour surveiller et signaler les activités suspectes, tout en accompagnant les victimes et leurs familles.</p>
+        <p>Nous avons besoin de vous pour continuer ce combat. Que vous souhaitiez contribuer à notre réseau de veille ou simplement soutenir nos actions, chaque geste compte. Ensemble, nous pouvons changer les choses.</p>
+        <div class="button-container">
+            <a href="https://discord.com" class="button" target="_blank">Rejoindre Discord</a>
+            <a href="https://tiktok.com" class="button" target="_blank">Suivre sur TikTok</a>
+        </div>
+        <audio id="background-music" src="votre-musique.mp3" loop></audio>
+    </div>
+    <script>
+        const terminal = document.getElementById("terminal");
+        const content = document.getElementById("content");
+        const music = document.getElementById("background-music");
+        const messages = [
+            "Connecting to server...",
+            "Bypassing firewall...",
+            "Access granted!",
+            "Loading data..."
+        ];
+
+        let i = 0;
+        function typeMessage() {
+            if (i < messages.length) {
+                terminal.innerHTML += messages[i] + "<br>";
+                i++;
+                setTimeout(typeMessage, 1500);
+            } else {
+                setTimeout(() => {
+                    terminal.style.display = "none";
+                    content.style.display = "block";
+                    music.play();
+                }, 1500);
+            }
+        }
+        setTimeout(typeMessage, 1000);
+    </script>
+</body>
+</html>
